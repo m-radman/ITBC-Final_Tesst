@@ -65,7 +65,8 @@ public class SeleniumTrainingPage extends BasePage{
     }
 
     public WebElement getCaptchaCodeImg() {
-        return getDriver().findElement(By.xpath("//img[@src='/captcha']"));
+        return getWait().until(ExpectedConditions.visibilityOf(getDriver()
+                .findElement(By.xpath("//img[@src='/captcha']"))));
     }
 
     public void clickRegFormBtn() {
