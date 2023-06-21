@@ -1,8 +1,11 @@
 package pages;
 
+import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BookStoreRegisterPage extends BasePage {
@@ -14,6 +17,7 @@ public class BookStoreRegisterPage extends BasePage {
     private WebElement backToLoginBtn;
     private WebElement reCaptchaFrame;
     private WebElement reCaptchaCheckBox;
+    private Alert alert;
 
     public BookStoreRegisterPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -48,7 +52,12 @@ public class BookStoreRegisterPage extends BasePage {
     }
 
     public WebElement getReCaptchaCheckBox() {
-        return getDriver().findElement(By.id("recaptcha-anchor"));
+        getWait().until(ExpectedConditions.presenceOfElementLocated(By.id("recaptcha-anchor")));
+        return getWait().until(ExpectedConditions.elementToBeClickable(By.id("recaptcha-anchor")));
+    }
+
+    public Alert getAlert() {
+        return getWait().until(ExpectedConditions.alertIsPresent());
     }
 
     public void enterFirstName(String firstname) {
@@ -76,7 +85,7 @@ public class BookStoreRegisterPage extends BasePage {
     }
 
     public void goToReCaptchaIFrame() {
-        getDriver().switchTo().frame(getReCaptchaFrame());
+        getWait().until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getReCaptchaFrame()));
     }
 
     public void switchToDefaultFrame() {
