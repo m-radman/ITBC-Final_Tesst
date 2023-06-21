@@ -6,19 +6,18 @@ import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.BookStoreLoginPage;
 import pages.BookStoreRegisterPage;
+import pages.ButtonsPage;
 import pages.SeleniumTrainingPage;
 
 import java.io.File;
@@ -31,9 +30,12 @@ public class BaseTest {
     private JavascriptExecutor js;
     private Faker faker;
     private ChromeOptions options;
+    private Alert alert;
+    private Actions actions;
     private SeleniumTrainingPage seleniumTrainingPage;
     private BookStoreRegisterPage bookStoreRegisterPage;
     private BookStoreLoginPage bookStoreLoginPage;
+    private ButtonsPage buttonsPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -51,6 +53,14 @@ public class BaseTest {
         return faker;
     }
 
+    public Alert getAlert() {
+        return getWait().until(ExpectedConditions.alertIsPresent());
+    }
+
+    public Actions getActions() {
+        return actions;
+    }
+
     public SeleniumTrainingPage getSeleniumTrainingPage() {
         return seleniumTrainingPage;
     }
@@ -63,6 +73,10 @@ public class BaseTest {
         return bookStoreLoginPage;
     }
 
+    public ButtonsPage getButtonsPage() {
+        return buttonsPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -73,9 +87,11 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
         faker = new Faker();
+        actions = new Actions(driver);
         seleniumTrainingPage = new SeleniumTrainingPage(driver, wait);
         bookStoreRegisterPage = new BookStoreRegisterPage(driver, wait);
         bookStoreLoginPage = new BookStoreLoginPage(driver, wait);
+        buttonsPage = new ButtonsPage(driver, wait);
     }
 
     @BeforeMethod

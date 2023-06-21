@@ -17,7 +17,6 @@ public class BookStoreRegisterPage extends BasePage {
     private WebElement backToLoginBtn;
     private WebElement reCaptchaFrame;
     private WebElement reCaptchaCheckBox;
-    private Alert alert;
 
     public BookStoreRegisterPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -54,10 +53,6 @@ public class BookStoreRegisterPage extends BasePage {
     public WebElement getReCaptchaCheckBox() {
         getWait().until(ExpectedConditions.presenceOfElementLocated(By.id("recaptcha-anchor")));
         return getWait().until(ExpectedConditions.elementToBeClickable(By.id("recaptcha-anchor")));
-    }
-
-    public Alert getAlert() {
-        return getWait().until(ExpectedConditions.alertIsPresent());
     }
 
     public void enterFirstName(String firstname) {

@@ -14,15 +14,11 @@ public class BookStoreTests extends BaseTest {
 
         getJs().executeScript("scroll(0, 200)");
 
-        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
         getBookStoreRegisterPage().enterFirstName(getFaker().name().firstName());
-        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
         getBookStoreRegisterPage().enterLastName(getFaker().name().lastName());
-        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
         getBookStoreRegisterPage().enterUserName(getFaker().name().username());
-        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
         getBookStoreRegisterPage().enterPassword(getFaker().internet()
-                .password(10, 15, true, true));
+                .password(8, 12, true, true, true));
 
         getBookStoreRegisterPage().goToReCaptchaIFrame();
         getBookStoreRegisterPage().clickReCaptchaCheckBox();
@@ -31,8 +27,7 @@ public class BookStoreTests extends BaseTest {
         Thread.sleep(10000);
         getBookStoreRegisterPage().clickRegisterBtn();
 
-        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
-        String alertText = getBookStoreRegisterPage().getAlert().getText();
+        String alertText = getAlert().getText();
 
         Assert.assertTrue(alertText.contains("Successfully"));
     }
