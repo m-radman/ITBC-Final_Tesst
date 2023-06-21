@@ -19,6 +19,7 @@ public class SeleniumTrainingPage extends BasePage{
     private  WebElement codeField;
     private WebElement captchaCodeImg;
     private WebElement sendFormBtn;
+    private WebElement successMsg;
 
     public SeleniumTrainingPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -67,6 +68,11 @@ public class SeleniumTrainingPage extends BasePage{
     public WebElement getCaptchaCodeImg() {
         return getWait().until(ExpectedConditions.visibilityOf(
                 getDriver().findElement(By.xpath("//img[@src='/captcha']"))));
+    }
+
+    public WebElement getSuccessMsg() {
+        return getWait().until(ExpectedConditions.visibilityOf(
+                getDriver().findElement(By.xpath("//div[contains(text(), 'get in touch')]"))));
     }
 
     public void clickRegFormBtn() {

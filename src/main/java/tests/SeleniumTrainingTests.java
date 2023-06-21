@@ -1,9 +1,11 @@
 package tests;
 
 import net.sourceforge.tess4j.TesseractException;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class SeleniumTrainingTests extends BaseTest{
     @Test
@@ -25,5 +27,8 @@ public class SeleniumTrainingTests extends BaseTest{
 
         getSeleniumTrainingPage().enterCode(code);
         getSeleniumTrainingPage().clickSendFormBtn();
+
+        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
+        Assert.assertTrue(getSeleniumTrainingPage().getSuccessMsg().isDisplayed());
     }
 }
