@@ -3,6 +3,8 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class ElementsTests extends BaseTest {
     @Test
     public void verifyDoubleClickBtn() {
@@ -26,5 +28,22 @@ public class ElementsTests extends BaseTest {
         getButtonsPage().clickDynamicClickBtn();
 
         Assert.assertTrue(getButtonsPage().getClickMsg().isDisplayed());
+    }
+
+    @Test
+    public void verifyRadioButtonsWorkCorrectly() {
+        getRadioButtonPage().open();
+        getRadioButtonPage().clickImpressiveRadioLabel();
+        getRadioButtonPage().clickYesRadioLabel();
+
+        Assert.assertTrue(getRadioButtonPage().getYesRadioBtn().isSelected());
+        Assert.assertEquals("Yes", getRadioButtonPage().getSuccessMsg().getText());
+    }
+
+    @Test
+    public void verifyNoBtnIsDisabled() {
+        getRadioButtonPage().open();
+
+        Assert.assertFalse(getRadioButtonPage().getNoRadioBtn().isEnabled());
     }
 }

@@ -15,10 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.BookStoreLoginPage;
-import pages.BookStoreRegisterPage;
-import pages.ButtonsPage;
-import pages.SeleniumTrainingPage;
+import pages.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +33,7 @@ public class BaseTest {
     private BookStoreRegisterPage bookStoreRegisterPage;
     private BookStoreLoginPage bookStoreLoginPage;
     private ButtonsPage buttonsPage;
+    private RadioButtonPage radioButtonPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -54,7 +52,8 @@ public class BaseTest {
     }
 
     public Alert getAlert() {
-        return getWait().until(ExpectedConditions.alertIsPresent());
+        getWait().until(ExpectedConditions.alertIsPresent());
+        return getDriver().switchTo().alert();
     }
 
     public Actions getActions() {
@@ -77,6 +76,10 @@ public class BaseTest {
         return buttonsPage;
     }
 
+    public RadioButtonPage getRadioButtonPage() {
+        return radioButtonPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -92,6 +95,7 @@ public class BaseTest {
         bookStoreRegisterPage = new BookStoreRegisterPage(driver, wait);
         bookStoreLoginPage = new BookStoreLoginPage(driver, wait);
         buttonsPage = new ButtonsPage(driver, wait);
+        radioButtonPage = new RadioButtonPage(driver, wait);
     }
 
     @BeforeMethod

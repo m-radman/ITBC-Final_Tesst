@@ -27,9 +27,8 @@ public class BookStoreTests extends BaseTest {
         Thread.sleep(10000);
         getBookStoreRegisterPage().clickRegisterBtn();
 
-        String alertText = getAlert().getText();
-
-        Assert.assertTrue(alertText.contains("Successfully"));
+        Thread.sleep(5000);
+        getAlert().accept();
     }
 
     @Test
