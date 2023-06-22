@@ -22,11 +22,11 @@ public class BookStoreProfilePage extends BasePage {
     }
 
     public WebElement getModalOkBtn() {
-        return getWait().until(ExpectedConditions.elementToBeClickable(getDriver().findElement(By.id("closeSmallModal-ok"))));
+        return (getDriver().findElement(By.id("closeSmallModal-ok")));
     }
 
     public WebElement getGotoStoreBtn() {
-        return getDriver().findElement(By.id("gotoStore"));
+        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id("gotoStore")));
     }
 
     public void clickModalOkBtn() {

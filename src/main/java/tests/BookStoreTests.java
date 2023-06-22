@@ -43,6 +43,25 @@ public class BookStoreTests extends BaseTest {
     }
 
     @Test
+    public void verifyUserCanSeeBookInfo() {
+        getBookStoreLoginPage().open();
+        getBookStoreLoginPage().enterUserName("MR");
+        getBookStoreLoginPage().enterPassword("Titikaka99!");
+        getBookStoreLoginPage().clickLoginBtn();
+
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        getBookStoreProfilePage().getGotoStoreBtn();
+
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        getBookStorePage().getBooksList().get(1).click();
+
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        getJs().executeScript("scroll(0, 200)");
+
+        Assert.assertTrue(getSingleBookPage().getProfileWrapper().isDisplayed());
+    }
+
+    @Test
     public void verifyUserCanDeleteBookFromCollection() {
         getBookStoreLoginPage().open();
         getBookStoreLoginPage().enterUserName("MR");

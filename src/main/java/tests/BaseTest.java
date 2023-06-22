@@ -35,6 +35,8 @@ public class BaseTest {
     private ButtonsPage buttonsPage;
     private RadioButtonPage radioButtonPage;
     private BookStoreProfilePage bookStoreProfilePage;
+    private BookStorePage bookStorePage;
+    private SingleBookPage singleBookPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -84,6 +86,14 @@ public class BaseTest {
         return bookStoreProfilePage;
     }
 
+    public BookStorePage getBookStorePage() {
+        return bookStorePage;
+    }
+
+    public SingleBookPage getSingleBookPage() {
+        return singleBookPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -101,6 +111,8 @@ public class BaseTest {
         buttonsPage = new ButtonsPage(driver, wait);
         radioButtonPage = new RadioButtonPage(driver, wait);
         bookStoreProfilePage = new BookStoreProfilePage(driver, wait);
+        bookStorePage = new BookStorePage(driver, wait);
+        singleBookPage = new SingleBookPage(driver, wait);
     }
 
     @BeforeMethod
