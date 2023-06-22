@@ -34,6 +34,7 @@ public class BaseTest {
     private BookStoreLoginPage bookStoreLoginPage;
     private ButtonsPage buttonsPage;
     private RadioButtonPage radioButtonPage;
+    private BookStoreProfilePage bookStoreProfilePage;
 
     public WebDriver getDriver() {
         return driver;
@@ -52,8 +53,7 @@ public class BaseTest {
     }
 
     public Alert getAlert() {
-        getWait().until(ExpectedConditions.alertIsPresent());
-        return getDriver().switchTo().alert();
+        return getWait().until(ExpectedConditions.alertIsPresent());
     }
 
     public Actions getActions() {
@@ -80,6 +80,10 @@ public class BaseTest {
         return radioButtonPage;
     }
 
+    public BookStoreProfilePage getBookStoreProfilePage() {
+        return bookStoreProfilePage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -96,6 +100,7 @@ public class BaseTest {
         bookStoreLoginPage = new BookStoreLoginPage(driver, wait);
         buttonsPage = new ButtonsPage(driver, wait);
         radioButtonPage = new RadioButtonPage(driver, wait);
+        bookStoreProfilePage = new BookStoreProfilePage(driver, wait);
     }
 
     @BeforeMethod

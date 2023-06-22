@@ -41,4 +41,21 @@ public class BookStoreTests extends BaseTest {
         getWait().until(ExpectedConditions.urlToBe("https://demoqa.com/profile"));
         Assert.assertTrue(getDriver().getCurrentUrl().contains("/profile"));
     }
+
+    @Test
+    public void verifyUserCanDeleteBookFromCollection() {
+        getBookStoreLoginPage().open();
+        getBookStoreLoginPage().enterUserName("MR");
+        getBookStoreLoginPage().enterPassword("Titikaka99!");
+        getBookStoreLoginPage().clickLoginBtn();
+
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+
+        getBookStoreProfilePage().getDeleteBookBtns().get(0).click();
+        getBookStoreProfilePage().clickModalOkBtn();
+
+        String alertText = getAlert().getText();
+        Assert.assertTrue(alertText.contains("deleted"));
+        getAlert().accept();
+    }
 }

@@ -36,6 +36,7 @@ public class ElementsTests extends BaseTest {
         getRadioButtonPage().clickImpressiveRadioLabel();
         getRadioButtonPage().clickYesRadioLabel();
 
+        Assert.assertFalse(getRadioButtonPage().getImpressiveRadioBtn().isSelected());
         Assert.assertTrue(getRadioButtonPage().getYesRadioBtn().isSelected());
         Assert.assertEquals("Yes", getRadioButtonPage().getSuccessMsg().getText());
     }
