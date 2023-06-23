@@ -19,7 +19,7 @@ ___
 
 ### Opis test slučjeva i bugova
 
-Opisi svih testova kao i prijavljenih `bug`-ova mogu se naći na lokaciji [src/manual_test/projekat_manual.xlsx](./src/manual_test/projekat_manual.xlsx).
+Opisi svih testova kao i prijavljenih bagova mogu se naći na lokaciji [src/manual_test/projekat_manual.xlsx](./src/manual_test/projekat_manual.xlsx).
 
 
 ### Pokretanje `Selenium` testova
