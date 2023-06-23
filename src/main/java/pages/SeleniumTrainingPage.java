@@ -71,8 +71,7 @@ public class SeleniumTrainingPage extends BasePage{
     }
 
     public WebElement getSuccessMsg() {
-        return getWait().until(ExpectedConditions.visibilityOf(
-                getDriver().findElement(By.xpath("//div[contains(text(), 'get in touch')]"))));
+        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(), 'get in touch')]")));
     }
 
     public void clickRegFormBtn() {
