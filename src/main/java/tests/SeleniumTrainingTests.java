@@ -23,7 +23,7 @@ public class SeleniumTrainingTests extends BaseTest{
         getSeleniumTrainingPage().enterMessage("Hello.");
 
         String code = fetchTextFromImg(
-                "C:\\Users\\milra\\IdeaProjects\\ITBC_project_MilosRadman\\src\\screenshots\\captchaScreenshot.png");
+                "src/screenshots/captchaScreenshot.png");
 
         getSeleniumTrainingPage().enterCode(code);
         getSeleniumTrainingPage().clickSendFormBtn();

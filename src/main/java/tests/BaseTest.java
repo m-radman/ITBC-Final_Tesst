@@ -99,7 +99,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
         options.addExtensions(new File(
-                "C:\\Users\\milra\\IdeaProjects\\ITBC_project_MilosRadman\\src\\extensions\\mpbjkejclgfgadiemmefgebjfooflfhl.crx"));
+                "src/extensions/gighmmpiobklfepjocnamgkkbiglidom.crx"));
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
@@ -129,14 +129,14 @@ public class BaseTest {
         File file = element.getScreenshotAs(OutputType.FILE);
 
         FileUtils.copyFile(file, new File(
-                "C:\\Users\\milra\\IdeaProjects\\ITBC_project_MilosRadman\\src\\screenshots\\captchaScreenshot.png"));
+                "src/screenshots/captchaScreenshot.png"));
 
     }
 
     public String fetchTextFromImg(String imgPath) throws TesseractException {
         ITesseract image = new Tesseract();
 
-        image.setDatapath("C:\\Users\\milra\\IdeaProjects\\ITBC_project_MilosRadman\\src\\tesseract");
+        image.setDatapath("src/tesseract");
         image.setLanguage("eng");
 
         String code = image.doOCR(new File(imgPath));
