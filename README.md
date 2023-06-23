@@ -15,7 +15,7 @@ Automatizovati neke od napisanih `case`-eva.
 Napraviti `Postman` kolekciju za [DemoQA Swagger API](https://demoqa.com/swagger/#/).
 ___
 
-## Rešenje zadatka
+## Izrada projekta
 
 ### Opis test slučjeva i bugova
 
