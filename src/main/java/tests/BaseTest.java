@@ -99,7 +99,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
         options.addExtensions(new File(
-                "src/extensions/gighmmpiobklfepjocnamgkkbiglidom.crx"));
+                "src/extensions/mpbjkejclgfgadiemmefgebjfooflfhl.crx"));
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
