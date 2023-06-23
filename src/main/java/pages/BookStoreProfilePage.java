@@ -33,6 +33,11 @@ public class BookStoreProfilePage extends BasePage {
         getModalOkBtn().click();
     }
 
+    public void clickGoToSoreBtn() {
+        getWait().until(ExpectedConditions.elementToBeClickable(getGotoStoreBtn()));
+        getGotoStoreBtn().click();
+    }
+
     public void open() {
         getDriver().get("https://demoqa.com/profile");
     }

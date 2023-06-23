@@ -44,15 +44,7 @@ public class BookStoreTests extends BaseTest {
 
     @Test
     public void verifyUserCanSeeBookInfo() {
-        getBookStoreLoginPage().open();
-        getBookStoreLoginPage().enterUserName("MR");
-        getBookStoreLoginPage().enterPassword("Titikaka99!");
-        getBookStoreLoginPage().clickLoginBtn();
-
-        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-        getBookStoreProfilePage().getGotoStoreBtn();
-
-        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        getBookStorePage().open();
         getBookStorePage().getBooksList().get(1).click();
 
         getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));

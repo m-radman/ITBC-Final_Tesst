@@ -211,7 +211,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"userId\": \"{{userID}}\",\r\n  \"collectionOfIsbns\": [\r\n    {\r\n      \"isbn\": \"9781449365035\"\r\n    }\r\n  ]\r\n}",
+					"raw": "{\r\n  \"userId\": \"{{userID}}\",\r\n  \"collectionOfIsbns\": [\r\n    {\r\n      \"isbn\": \"{{bookISBN}}\"\r\n    }\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -318,7 +318,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"isbn\": \"9781449365035\",\r\n  \"userId\": \"{{userID}}\"\r\n}",
+					"raw": "{\r\n  \"isbn\": \"{{bookISBN}}\",\r\n  \"userId\": \"{{userID}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -374,7 +374,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"userId\": \"{{userID}}\",\r\n  \"isbn\": \"9781449365035\"\r\n}",
+					"raw": "{\r\n  \"userId\": \"{{userID}}\",\r\n  \"isbn\": \"{{bookISBN}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -382,7 +382,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{BookStoreUrl}}/BookStore/v1/Books/9781449337711",
+					"raw": "{{BookStoreUrl}}/BookStore/v1/Books/{{usersBookISBN}}",
 					"host": [
 						"{{BookStoreUrl}}"
 					],
@@ -390,7 +390,7 @@
 						"BookStore",
 						"v1",
 						"Books",
-						"9781449337711"
+						"{{usersBookISBN}}"
 					]
 				}
 			},
@@ -440,6 +440,16 @@
 		},
 		{
 			"key": "userID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bookISBN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "usersBookISBN",
 			"value": "",
 			"type": "string"
 		}
