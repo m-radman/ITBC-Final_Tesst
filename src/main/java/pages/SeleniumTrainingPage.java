@@ -96,8 +96,7 @@ public class SeleniumTrainingPage extends BasePage{
     }
 
     public void selectCountry(String country) {
-        Select select = getSelect();
-        select = new Select(getCountrySelect());
+        Select select = new Select(getCountrySelect());
         select.selectByVisibleText(country);
     }
 
