@@ -1,9 +1,11 @@
 package tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class ElementsTests extends BaseTest {
     @Test
@@ -46,5 +48,31 @@ public class ElementsTests extends BaseTest {
         getRadioButtonPage().open();
 
         Assert.assertFalse(getRadioButtonPage().getNoRadioBtn().isEnabled());
+    }
+
+    @Test
+    public void verifyHomeCheckboxIsChecked() {
+        getCheckboxPage().open();
+
+        getCheckboxPage().clickHomeCheckboxLabel();
+
+        Assert.assertTrue(getCheckboxPage().getHomeCheckbox().isSelected());
+    }
+
+    @Test
+    public void verifyAllNodesAreChecked() {
+        getCheckboxPage().open();
+
+        getCheckboxPage().clickHomeCheckboxLabel();
+        getCheckboxPage().clickExpandBtn();
+        getWait().withTimeout(Duration.ofSeconds(5));
+
+        ArrayList<WebElement> nodes = getCheckboxPage().getTreeNodes();
+
+        Assert.assertEquals(nodes.size(), 17);
+
+        for (WebElement node : nodes) {
+            Assert.assertTrue(node.isSelected());
+        }
     }
 }

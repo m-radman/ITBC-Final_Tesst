@@ -37,6 +37,7 @@ public class BaseTest {
     private BookStoreProfilePage bookStoreProfilePage;
     private BookStorePage bookStorePage;
     private SingleBookPage singleBookPage;
+    private CheckboxPage checkboxPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -94,6 +95,10 @@ public class BaseTest {
         return singleBookPage;
     }
 
+    public CheckboxPage getCheckboxPage() {
+        return checkboxPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -113,6 +118,7 @@ public class BaseTest {
         bookStoreProfilePage = new BookStoreProfilePage(driver, wait);
         bookStorePage = new BookStorePage(driver, wait);
         singleBookPage = new SingleBookPage(driver, wait);
+        checkboxPage = new CheckboxPage(driver, wait);
     }
 
     @BeforeMethod
