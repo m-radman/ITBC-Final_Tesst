@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -87,5 +88,27 @@ public class ElementsTests extends BaseTest {
         getDriver().switchTo().window(browserTabs.get(1));
 
         Assert.assertEquals(getDriver().getCurrentUrl(), "https://demoqa.com/");
+    }
+
+    @Test
+    public void verifyLinkIsBroken() {
+        getBrokenLinksPage().open();
+
+        int response;
+
+        try {
+            response = getBrokenLinksPage().getLinkResponseCode(getBrokenLinksPage().getBrokenLink());
+            System.out.println(response);
+            Assert.assertNotEquals(response, 200);
+        } catch (IOException exception){
+            System.out.println(exception);
+        }
+    }
+
+    @Test
+    public void verifyImageIsBroken() {
+        getBrokenLinksPage().open();
+
+        Assert.assertEquals(getBrokenLinksPage().getBrokenImgLink().getAttribute("naturalWidth"), "0");
     }
 }

@@ -40,6 +40,7 @@ public class BaseTest {
     private SingleBookPage singleBookPage;
     private CheckboxPage checkboxPage;
     private LinksPage linksPage;
+    private BrokenLinksPage brokenLinksPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -105,6 +106,10 @@ public class BaseTest {
         return linksPage;
     }
 
+    public BrokenLinksPage getBrokenLinksPage() {
+        return brokenLinksPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -126,6 +131,7 @@ public class BaseTest {
         singleBookPage = new SingleBookPage(driver, wait);
         checkboxPage = new CheckboxPage(driver, wait);
         linksPage = new LinksPage(driver, wait);
+        brokenLinksPage = new BrokenLinksPage(driver, wait);
     }
 
     @BeforeMethod
