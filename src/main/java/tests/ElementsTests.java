@@ -75,4 +75,17 @@ public class ElementsTests extends BaseTest {
             Assert.assertTrue(node.isSelected());
         }
     }
+
+    @Test
+    public void verifyNewTabIsOpened() {
+        getLinksPage().open();
+
+        getLinksPage().clickHomeLink();
+
+        ArrayList<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
+
+        getDriver().switchTo().window(browserTabs.get(1));
+
+        Assert.assertEquals(getDriver().getCurrentUrl(), "https://demoqa.com/");
+    }
 }

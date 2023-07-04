@@ -20,6 +20,7 @@ import pages.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class BaseTest {
     private WebDriver driver;
@@ -38,6 +39,7 @@ public class BaseTest {
     private BookStorePage bookStorePage;
     private SingleBookPage singleBookPage;
     private CheckboxPage checkboxPage;
+    private LinksPage linksPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -99,6 +101,10 @@ public class BaseTest {
         return checkboxPage;
     }
 
+    public LinksPage getLinksPage() {
+        return linksPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -119,6 +125,7 @@ public class BaseTest {
         bookStorePage = new BookStorePage(driver, wait);
         singleBookPage = new SingleBookPage(driver, wait);
         checkboxPage = new CheckboxPage(driver, wait);
+        linksPage = new LinksPage(driver, wait);
     }
 
     @BeforeMethod
@@ -128,7 +135,7 @@ public class BaseTest {
 
     @AfterClass
     public void cleanup() {
-        getDriver().close();
+        getDriver().quit();
     }
 
     public void getScreenshotOfElement(WebElement element) throws IOException {
