@@ -43,6 +43,7 @@ public class BaseTest {
     private LinksPage linksPage;
     private BrokenLinksPage brokenLinksPage;
     private UploadDownloadPage uploadDownloadPage;
+    private DroppablePage droppablePage;
 
     public WebDriver getDriver() {
         return driver;
@@ -116,6 +117,10 @@ public class BaseTest {
         return uploadDownloadPage;
     }
 
+    public DroppablePage getDroppablePage() {
+        return droppablePage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -149,6 +154,7 @@ public class BaseTest {
         linksPage = new LinksPage(driver, wait);
         brokenLinksPage = new BrokenLinksPage(driver, wait);
         uploadDownloadPage = new UploadDownloadPage(driver, wait);
+        droppablePage = new DroppablePage(driver, wait);
     }
 
     @BeforeMethod
