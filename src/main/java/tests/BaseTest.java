@@ -19,15 +19,16 @@ import pages.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BaseTest {
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
     private Faker faker;
-    private ChromeOptions options;
     private Alert alert;
     private Actions actions;
     private SeleniumTrainingPage seleniumTrainingPage;
@@ -41,6 +42,7 @@ public class BaseTest {
     private CheckboxPage checkboxPage;
     private LinksPage linksPage;
     private BrokenLinksPage brokenLinksPage;
+    private UploadDownloadPage uploadDownloadPage;
 
     public WebDriver getDriver() {
         return driver;
@@ -110,17 +112,31 @@ public class BaseTest {
         return brokenLinksPage;
     }
 
+    public UploadDownloadPage getUploadDownloadPage() {
+        return uploadDownloadPage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
-        options = new ChromeOptions();
+
+        ChromeOptions options = new ChromeOptions();
         options.addExtensions(new File(
                 "src/extensions/mpbjkejclgfgadiemmefgebjfooflfhl.crx"));
+
+        Path currentRelativePath = Paths.get("src/screenshots");
+        String downloadPath = currentRelativePath.toAbsolutePath().toString();
+
+        HashMap<String, Object> chromePref = new HashMap<String, Object>();
+        chromePref.put("download.default_directory", downloadPath);
+        options.setExperimentalOption("prefs", chromePref);
+
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
         faker = new Faker();
         actions = new Actions(driver);
+
         seleniumTrainingPage = new SeleniumTrainingPage(driver, wait);
         bookStoreRegisterPage = new BookStoreRegisterPage(driver, wait);
         bookStoreLoginPage = new BookStoreLoginPage(driver, wait);
@@ -132,6 +148,7 @@ public class BaseTest {
         checkboxPage = new CheckboxPage(driver, wait);
         linksPage = new LinksPage(driver, wait);
         brokenLinksPage = new BrokenLinksPage(driver, wait);
+        uploadDownloadPage = new UploadDownloadPage(driver, wait);
     }
 
     @BeforeMethod
@@ -161,4 +178,18 @@ public class BaseTest {
         String code = image.doOCR(new File(imgPath));
         return code;
     }
+
+    public boolean checkFilePresence() {
+        File directory = new File("src/screenshots");
+        File[] filesList = directory.listFiles();
+
+        for (File file : filesList) {
+            if(file.getName().contains("sampleFile")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    File img = new File("src/screenshots/captchaScreenshot.png");
 }

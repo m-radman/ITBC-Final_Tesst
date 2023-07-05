@@ -111,4 +111,23 @@ public class ElementsTests extends BaseTest {
 
         Assert.assertEquals(getBrokenLinksPage().getBrokenImgLink().getAttribute("naturalWidth"), "0");
     }
+
+    @Test
+    public void verufyUploadWorks() {
+        getUploadDownloadPage().open();
+
+        getUploadDownloadPage().uploadFile(img.getAbsolutePath());
+
+        Assert.assertTrue(getUploadDownloadPage().getUploadedFilePath().getText().contains("captchaScreenshot"));
+    }
+
+    @Test
+    public void verifyDownloadWorks() throws InterruptedException {
+        getUploadDownloadPage().open();
+
+        getUploadDownloadPage().clickDownloadBtn();
+        Thread.sleep(3000);
+
+        Assert.assertTrue(checkFilePresence());
+    }
 }
