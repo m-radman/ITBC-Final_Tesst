@@ -28,6 +28,7 @@ Za pokretanje testova potrebno je pokrenuti pojedinacne test klase:
 - [BookStoreTests](./src/main/java/tests/BookStoreTests.java)
 - [ElementsTests](./src/main/java/tests/ElementsTests.java)
 - [SeleniumTrainingTests](./src/main/java/tests/SeleniumTrainingTests.java)
+- [InteractionsTests](src/main/java/tests/InteractionsTests.java)
 
 Sve PO klase nalaze se [src/main/java/pages](./src/main/java/pages).
 
