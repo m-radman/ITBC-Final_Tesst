@@ -113,7 +113,7 @@ public class ElementsTests extends BaseTest {
     }
 
     @Test
-    public void verufyUploadWorks() {
+    public void verifyUploadWorks() {
         getUploadDownloadPage().open();
 
         getUploadDownloadPage().uploadFile(img.getAbsolutePath());
