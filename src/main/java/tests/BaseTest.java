@@ -44,6 +44,7 @@ public class BaseTest {
     private BrokenLinksPage brokenLinksPage;
     private UploadDownloadPage uploadDownloadPage;
     private DroppablePage droppablePage;
+    private ResizablePage resizablePage;
 
     public WebDriver getDriver() {
         return driver;
@@ -121,6 +122,10 @@ public class BaseTest {
         return droppablePage;
     }
 
+    public ResizablePage getResizablePage() {
+        return resizablePage;
+    }
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -155,6 +160,7 @@ public class BaseTest {
         brokenLinksPage = new BrokenLinksPage(driver, wait);
         uploadDownloadPage = new UploadDownloadPage(driver, wait);
         droppablePage = new DroppablePage(driver, wait);
+        resizablePage = new ResizablePage(driver, wait);
     }
 
     @BeforeMethod
@@ -197,5 +203,8 @@ public class BaseTest {
         return false;
     }
 
+    public void resizeElement(WebElement element, int xOffset, int yOffset) {
+        actions.moveToElement(element).clickAndHold().moveByOffset(xOffset, yOffset).release().perform();
+    }
     File img = new File("src/screenshots/captchaScreenshot.png");
 }

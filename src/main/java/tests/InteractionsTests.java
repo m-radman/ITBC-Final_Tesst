@@ -28,4 +28,14 @@ public class InteractionsTests extends BaseTest {
         Assert.assertEquals(getDroppablePage().getDropBoxRevertable().getText(), "Dropped!");
         Assert.assertEquals(getDroppablePage().getRevertableBlock().getLocation(), location);
     }
+
+    @Test
+    public void verifyResizableElement() {
+        getResizablePage().open();
+
+        resizeElement(getResizablePage().getResizeHandle(), 100, 100);
+
+        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getWidth(), 300);
+        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getHeight(), 300);
+    }
 }
