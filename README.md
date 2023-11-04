@@ -22,13 +22,17 @@ ___
 Opisi svih testova kao i prijavljenih bagova mogu se naći na lokaciji [src/manual_test/projekat_manual.xlsx](./src/manual_test/projekat_manual.xlsx).
 
 
+### Implementacija testova
+
+Test fajlove mozete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/tests)
+Page Object fajlove mozete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/pages)
+
+
 ### Pokretanje `Selenium` testova
 
-Za pokretanje testova potrebno je pokrenuti pojedinacne test klase:
-- [BookStoreTests](./src/main/java/tests/BookStoreTests.java)
-- [ElementsTests](./src/main/java/tests/ElementsTests.java)
-- [SeleniumTrainingTests](./src/main/java/tests/SeleniumTrainingTests.java)
-- [InteractionsTests](src/main/java/tests/InteractionsTests.java)
+Za pokretanje testova potrebno je pokrenuti TestNG .xml fajl:
+- [myTests.xml](https://github.com/m-radman/ITBC_project_MilosRadman/blob/master/myTests.xml)
+
 
 Sve PO klase nalaze se [src/main/java/pages](./src/main/java/pages).
 
