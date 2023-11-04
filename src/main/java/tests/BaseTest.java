@@ -128,7 +128,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.addExtensions(new File(
