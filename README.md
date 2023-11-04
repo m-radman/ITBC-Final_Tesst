@@ -17,15 +17,15 @@ ___
 
 ## Izrada projekta
 
-### Opis test slučjeva i bugova
+### Opis test slučajeva i bugova
 
 Opisi svih testova kao i prijavljenih bagova mogu se naći na lokaciji [src/manual_test/projekat_manual.xlsx](./src/manual_test/projekat_manual.xlsx).
 
 
 ### Implementacija testova
 
-Test fajlove mozete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/tests)
-Page Object fajlove mozete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/pages)
+Test fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/tests)
+Page Object fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/pages)
 
 
 ### Pokretanje `Selenium` testova
