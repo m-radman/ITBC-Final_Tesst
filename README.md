@@ -34,8 +34,6 @@ Za pokretanje testova potrebno je pokrenuti TestNG .xml fajl:
 [myTests.xml](https://github.com/m-radman/ITBC_project_MilosRadman/blob/master/myTests.xml)
 
 
-Sve PO klase nalaze se [src/main/java/pages](./src/main/java/pages).
-
 ### `Postman` kolekcija
 
 API testovi nalazi se na lokaciji [src/postman_tests/BookStoreAPI.postman_collection](./src/postman_tests/BookStoreAPI.postman_collection)
