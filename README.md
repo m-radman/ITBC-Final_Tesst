@@ -24,7 +24,7 @@ Opisi svih testova kao i prijavljenih bagova mogu se naći na lokaciji [src/manu
 
 ### Implementacija testova
 
-Test fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/tests)
+Test fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/tests)  
 Page Object fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_project_MilosRadman/tree/master/src/main/java/pages)
 
 
