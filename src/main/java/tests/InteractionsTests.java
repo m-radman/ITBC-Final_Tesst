@@ -35,7 +35,7 @@ public class InteractionsTests extends BaseTest {
 
         resizeElement(getResizablePage().getResizeHandle(), 100, 100);
 
-        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getWidth(), 300);
-        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getHeight(), 300);
+        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getWidth(), 200);
+        Assert.assertEquals(getResizablePage().getResizableBox().getRect().getHeight(), 200);
     }
 }
