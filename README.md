@@ -31,7 +31,7 @@ Page Object fajlove možete pogledati [ovde](https://github.com/m-radman/ITBC_pr
 ### Pokretanje `Selenium` testova
 
 Za pokretanje testova potrebno je pokrenuti TestNG .xml fajl:
-- [myTests.xml](https://github.com/m-radman/ITBC_project_MilosRadman/blob/master/myTests.xml)
+[myTests.xml](https://github.com/m-radman/ITBC_project_MilosRadman/blob/master/myTests.xml)
 
 
 Sve PO klase nalaze se [src/main/java/pages](./src/main/java/pages).
